@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) {
         double monthly_payout;
         double interest_rate;
+        double totalMonths;
+        double monthlyRate;
         double annuity;
         int number_of_years;
 
@@ -18,15 +20,16 @@ public class Main {
 
         System.out.println("What is the number of Years.Eg 12,34");
         number_of_years = myscanner.nextInt();
-        System.out.println(number_of_years);
+        totalMonths = number_of_years * 12;
+        System.out.println(totalMonths);
 
         System.out.println("What is the interest rate as a percentage but do not include %. Eg 7.62, 5 ");
         interest_rate = myscanner.nextDouble();
-        interest_rate = interest_rate / 100;
-        System.out.println(interest_rate);
+        monthlyRate = interest_rate / 100/12;
+        System.out.println(monthlyRate);
 
 
-        annuity= monthly_payout * (1 - Math.pow(1 + interest_rate, -number_of_years)) / interest_rate;
+        annuity= monthly_payout * (1 - Math.pow(1 + monthlyRate, - totalMonths)) / monthlyRate;
         System.out.println("You will need to invest $" + annuity+ "today" );
     }
 }
